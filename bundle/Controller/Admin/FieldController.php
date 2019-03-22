@@ -58,16 +58,6 @@ class FieldController extends Controller
         );
 
         $data = $data = $this->filterTags($searchResult->tags, $subTreeLimit, $hideRootTag);
-        
-        /**
-         * Sorts the array alphabetically
-         */
-        usort($data, function ($a, $b) {
-            return strcmp(
-                strtolower($a["name"]), 
-                strtolower($b["name"])
-            );
-        });
 
         return new JsonResponse($data);
     }
@@ -95,8 +85,6 @@ class FieldController extends Controller
         );
 
         $data = $this->filterTags($tags, $subTreeLimit, $hideRootTag);
-        
-        
 
         return new JsonResponse($data);
     }
